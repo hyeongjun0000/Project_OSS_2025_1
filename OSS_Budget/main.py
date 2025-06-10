@@ -1,6 +1,5 @@
 from budget import Budget
 
-
 def main():
     budget = Budget()
 
@@ -22,6 +21,14 @@ def main():
                 continue
             budget.add_expense(category, description, amount)
 
+            total = budget.get_total_amount()
+            if total <= 300000:
+                print(f"총 지출: {total}원 😄")
+            elif total <= 500000:
+                print(f"총 지출: {total}원 😐")
+            else:
+                print(f"총 지출: {total}원 😡")
+
         elif choice == "2":
             budget.list_expenses()
 
@@ -34,7 +41,6 @@ def main():
 
         else:
             print("잘못된 선택입니다.\n")
-
 
 if __name__ == "__main__":
     main()
